@@ -28,6 +28,13 @@ function renderizarPokes(pokemon){
         img$$.src = pokemon[poke].sprites.front_default;
         div$$.appendChild(img$$)
 
+        let h3$$ = document.createElement("h3")
+        h3$$.textContent = pokemon[poke].name 
+        div$$.appendChild(h3$$)
+
+        let id$$ = document.createElement("p")
+        id$$.textContent = pokemon[poke].id
+        div$$.appendChild(id$$)
         
     }
 }

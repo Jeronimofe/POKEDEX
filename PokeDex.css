@@ -6,9 +6,16 @@
     text-decoration: none;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
 .sectionTitulo{
-    background-image: linear-gradient(rgba(141, 131, 131, 0.877), rgb(51, 51, 51)) ;
-    border: black 5px solid;
+    background-image: linear-gradient(rgb(83, 83, 83),rgb(209, 3, 3)) ;
+    border-bottom: rgba(51, 51, 51, 0.3) solid 3px;
     height: 30vh;
     display: flex;
     flex-direction: column;
@@ -35,7 +42,7 @@
     padding: 5px;
 }
 
-.sectionTitulo p{
+.sectionTitulo h2{
     font-family: 'Electrolize', sans-serif;
     font-size: 30px;
     color: rgb(209, 3, 3);
@@ -45,4 +52,28 @@
     font-family: 'Electrolize', sans-serif;
     font-size: 40px;
     color: rgb(209, 3, 3);
+}
+
+
+/* FIN SECTION TITULO */
+
+
+.sectionPokedex{
+    display: flex;
+    background-image: url(img/poke.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 98.7vw;
+}
+
+.pokeDiv{
+    display: grid;
+    width: 27vw;
+    height: 350px;
+    border: solid black 5px;
+    border-radius: 15px;
+    background-color: gray;
+    margin: 20px;
 }
