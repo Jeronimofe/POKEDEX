@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.sectionTitulo{
+    background-image: linear-gradient(rgba(141, 131, 131, 0.877), rgb(51, 51, 51)) ;
+    border: black 5px solid;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionTituloSearchBar{
+    padding-left: 25px;
+    align-self: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.sectionTituloSearchBar label{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(51, 51, 51, 0.3);
+    border-radius: 10px;
+    border: 1px solid gray;
+    color: rgb(209, 3, 3);
+    font-family: 'Electrolize', sans-serif;
+    padding: 5px;
+}
+
+.sectionTitulo p{
+    font-family: 'Electrolize', sans-serif;
+    font-size: 30px;
+    color: rgb(209, 3, 3);
+}
+
+.sectionTitulo h1{
+    font-family: 'Electrolize', sans-serif;
+    font-size: 40px;
+    color: rgb(209, 3, 3);
+}
