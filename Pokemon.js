@@ -29,6 +29,11 @@ function renderizarPokes(pokemon){
         img$$.classList.add('imagenPoke')
         div$$.appendChild(img$$)
 
+        let imgshiny$$ = document.createElement('img')
+        imgshiny$$.src = pokemon[poke].sprites.front_shiny;
+        imgshiny$$.classList.add('imagenPokeShiny')
+        div$$.appendChild(imgshiny$$);
+
         let h3$$ = document.createElement("h3")
         h3$$.textContent = pokemon[poke].name
         h3$$.classList.add('nombrePoke')
@@ -76,29 +81,45 @@ function renderizarPokes(pokemon){
                 tipoPrincipal$$.classList.add('rocktype')
             } else if (pokemon[poke].types[tipo].type.name === 'psychic'){
                 tipoPrincipal$$.classList.add('psychictype')
+            } else if (pokemon[poke].types[tipo].type.name === 'steel'){
+                tipoPrincipal$$.classList.add('steeltype')
             } else {
-                tipoPrincipal$$.classList.add('tipoadelantado')
+                tipoPrincipal$$.classList.add('fairytype')
             }
         }
 
         let div_stats$$ = document.createElement('div')
         div$$.appendChild(div_stats$$)
         div_stats$$.classList.add('divStats')
+
+        let div_stats_value$$ = document.createElement('div')
+        div_stats$$.appendChild(div_stats_value$$)
+        div_stats_value$$.classList.add('divStats_Value')
+
+        let div_stats_name$$ = document.createElement('div')
+        div_stats$$.appendChild(div_stats_name$$)
+        div_stats_name$$.classList.add('divStats_Name')
+
         for (const type in pokemon[poke].stats){
             let stat_name$$ = document.createElement('p')
             stat_name$$.textContent = pokemon[poke].stats[type].base_stat
-            div_stats$$.appendChild(stat_name$$)
+            div_stats_name$$.appendChild(stat_name$$)
             stat_name$$.classList.add('statName')
 
             let stat_value$$ = document.createElement('p')
             stat_value$$.textContent = pokemon[poke].stats[type].stat.name
-            div_stats$$.appendChild(stat_value$$)
+            div_stats_value$$.appendChild(stat_value$$)
             stat_value$$.classList.add('statValue')
         }
 
             let div_div$$ = document.createElement('div')
             div$$.appendChild(div_div$$)
             div_div$$.classList.add('divHabilidades')
+
+            let div_div_titulo$$ = document.createElement('p')
+            div_div$$.appendChild(div_div_titulo$$)
+            div_div_titulo$$.textContent = 'Habilidades:'
+            div_div_titulo$$.classList.add('tituloHabilidades')
         for (const power in pokemon[poke].abilities){
             let ability$$ = document.createElement("p")
             ability$$.textContent = pokemon[poke].abilities[power].ability.name
