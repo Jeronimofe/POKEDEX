@@ -17,8 +17,9 @@
 const INFO_POKEMONS = []
 
 function renderizarPokes(pokemon){
+    let sectionPokedex$$ = document.querySelector(".sectionPokedex")
+    sectionPokedex$$.innerHTML = ''
     for(const poke in pokemon){
-        let sectionPokedex$$ = document.querySelector(".sectionPokedex")
 
         let div$$ = document.createElement("div")
         sectionPokedex$$.appendChild(div$$)
@@ -48,10 +49,10 @@ function renderizarPokes(pokemon){
         div$$.appendChild(div_tipos$$)
         div_tipos$$.classList.add('divTipos')
         for (const tipo in pokemon[poke].types){
-            let tipoPrincipal$$ = document.createElement('p')
+            const tipoPrincipal$$ = document.createElement('p')
             tipoPrincipal$$.textContent = pokemon[poke].types[tipo].type.name
-            div_tipos$$.appendChild(tipoPrincipal$$)
-            if(pokemon[poke].types[0].type.name === 'fire'){
+
+            if(pokemon[poke].types[tipo].type.name === 'fire'){
                 tipoPrincipal$$.classList.add('firetype')
             } else if (pokemon[poke].types[tipo].type.name === 'water'){
                 tipoPrincipal$$.classList.add('watertype')
@@ -86,6 +87,7 @@ function renderizarPokes(pokemon){
             } else {
                 tipoPrincipal$$.classList.add('fairytype')
             }
+            div_tipos$$.appendChild(tipoPrincipal$$)
         }
 
         let div_stats$$ = document.createElement('div')
@@ -126,9 +128,12 @@ function renderizarPokes(pokemon){
             ability$$.classList.add('habilidadPoke')
             div_div$$.appendChild(ability$$)
         }
+        
     }
     
 }
+
+
 
 async function getPokemons(i){
             return fetch('https://pokeapi.co/api/v2/pokemon/'+i+'/?limit=151')
@@ -143,6 +148,29 @@ async function pokedexIniciada(){
             INFO_POKEMONS.push(InformacionIndividualPokemon)
         }
     renderizarPokes(INFO_POKEMONS)
+    
 }
+
+const search$$ = document.querySelector("input")
+function pokefinder(pokemon){
+    const pokesearch = []
+    for(const poke of pokemon){    
+            if (poke.name.includes(search$$.value) || poke.id == search$$.value){
+                pokesearch.push(poke);
+            } else{
+                for (const tipo in poke.types){
+                    if (poke.types[tipo].type.name.includes(search$$.value)){
+                        pokesearch.push(poke)
+                    }
+                }
+            }
+        }
+        renderizarPokes(pokesearch)
+    }    
+search$$.addEventListener("input",() => pokefinder(INFO_POKEMONS))
+
+
+
+
 window.onload = pokedexIniciada();
 

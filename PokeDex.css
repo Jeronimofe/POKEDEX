@@ -62,10 +62,12 @@ body{
     display: flex;
     background-image: url(img/poke.jpg);
     background-attachment: fixed;
-    background-size: cover;
+    background-size:cover;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 98.7vw;
+    min-height: 100vh;
+    overflow: visible;
 }
 
 .pokeDiv{
@@ -174,7 +176,7 @@ body{
 }
 .electrictype{
     background-color: yellow;
-    color:black;
+    color:white;
     height: 25px;
     padding-right: 5px;
     padding-left: 5px;
@@ -197,7 +199,7 @@ body{
     border-radius: 5px;
 }
 .groundtype{
-    background-color: burlywood;
+    background-color: rgb(216, 148, 60);
     color:white;
     height: 25px;
     padding-right: 5px;
