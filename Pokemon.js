@@ -21,8 +21,20 @@ function renderizarPokes(pokemon){
     sectionPokedex$$.innerHTML = ''
     for(const poke in pokemon){
 
+        let flip_card$$= document.createElement("div")
+        sectionPokedex$$.appendChild(flip_card$$)
+        flip_card$$.classList.add('flip_card')
+
+        let flip_card_inner$$=document.createElement("div")
+        flip_card$$.appendChild(flip_card_inner$$)
+        flip_card_inner$$.classList.add('flip_card_inner')
+
+        let flip_card_inner_back$$ = document.createElement("div")
+        flip_card_inner$$.appendChild(flip_card_inner_back$$)
+        flip_card_inner_back$$.classList.add('flip_card_inner_back')
+
         let div$$ = document.createElement("div")
-        sectionPokedex$$.appendChild(div$$)
+        flip_card_inner$$.appendChild(div$$)
         div$$.classList.add('pokeDiv')
 
         let img$$ = document.createElement('img')
