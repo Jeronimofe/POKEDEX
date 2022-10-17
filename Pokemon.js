@@ -33,8 +33,47 @@ function renderizarPokes(pokemon){
         flip_card_inner$$.appendChild(flip_card_inner_back$$)
         flip_card_inner_back$$.classList.add('flip_card_inner_back')
 
+        let flip_card_inner_front$$ = document.createElement("div")
+        flip_card_inner$$.appendChild(flip_card_inner_front$$)
+        flip_card_inner_front$$.classList.add('flip_card_inner_front')
+
+        let div_back$$ = document.createElement("div")
+        flip_card_inner_back$$.appendChild(div_back$$)
+        div_back$$.classList.add('pokeDiv_back')
+
+        let baseExp$$ = document.createElement("p")
+        baseExp$$.textContent = "Base EXP = " + pokemon[poke].base_experience + "ep"
+        div_back$$.appendChild(baseExp$$)
+        baseExp$$.classList.add('baseExp')
+
+        let height$$ = document.createElement("p")
+        height$$.textContent = "Height = " + pokemon[poke].height + "ft"
+        div_back$$.appendChild(height$$)
+        height$$.classList.add('height')
+
+        let weight$$ = document.createElement("p")
+        weight$$.textContent = "Weight = " + pokemon[poke].weight + "lb"
+        div_back$$.appendChild(weight$$)
+        weight$$.classList.add('weight')
+
+
+        let imgshiny_back$$ = document.createElement('img')
+        imgshiny_back$$.src = pokemon[poke].sprites.back_shiny;
+        imgshiny_back$$.classList.add('imagenPokeShiny_back')
+        div_back$$.appendChild(imgshiny_back$$);
+
+        let img_back$$ = document.createElement('img')
+        img_back$$.src = pokemon[poke].sprites.back_default;
+        img_back$$.classList.add('img_back')
+        div_back$$.appendChild(img_back$$)
+
+        let id_back$$ = document.createElement("p")
+        id_back$$.textContent = pokemon[poke].id
+        id_back$$.classList.add('idPoke_back')
+        div_back$$.appendChild(id_back$$)
+
         let div$$ = document.createElement("div")
-        flip_card_inner$$.appendChild(div$$)
+        flip_card_inner_front$$.appendChild(div$$)
         div$$.classList.add('pokeDiv')
 
         let img$$ = document.createElement('img')
@@ -56,6 +95,9 @@ function renderizarPokes(pokemon){
         id$$.textContent = pokemon[poke].id
         id$$.classList.add('idPoke')
         div$$.appendChild(id$$)
+
+
+        
 
         let div_tipos$$ = document.createElement('div')
         div$$.appendChild(div_tipos$$)
