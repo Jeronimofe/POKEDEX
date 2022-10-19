@@ -18,7 +18,12 @@ const INFO_POKEMONS = []
 
 function renderizarPokes(pokemon){
     let sectionPokedex$$ = document.querySelector(".sectionPokedex")
-    sectionPokedex$$.innerHTML = ''
+    if(pokemon.length === 0){
+        sectionPokedex$$.innerHTML = ''
+        renderizarMensaje()
+    } else {
+        sectionPokedex$$.innerHTML = ''
+    }
     for(const poke in pokemon){
 
         let flip_card$$= document.createElement("div")
@@ -207,21 +212,33 @@ async function pokedexIniciada(){
 
 const search$$ = document.querySelector("input")
 function pokefinder(pokemon){
+    
     const pokesearch = []
+
     for(const poke of pokemon){    
             if (poke.name.includes(search$$.value) || poke.id == search$$.value){
                 pokesearch.push(poke);
-            } else{
+            } else if(poke.name !== search$$.value && poke.id !== search$$.value){
                 for (const tipo in poke.types){
-                    if (poke.types[tipo].type.name.includes(search$$.value)){
-                        pokesearch.push(poke)
+                    if (poke.types[tipo].type.name === search$$.value){
+                        pokesearch.push(poke);
                     }
                 }
+            } else {
+                renderizarMensaje()
             }
         }
-        renderizarPokes(pokesearch)
-    }    
+    renderizarPokes(pokesearch)
+    }   
 search$$.addEventListener("input",() => pokefinder(INFO_POKEMONS))
+
+function renderizarMensaje(){
+        let sectionPokedex$$ = document.querySelector(".sectionPokedex")
+        let mjs$$ = document.createElement("p")
+        mjs$$.textContent = "Error en la busqueda"
+        sectionPokedex$$.appendChild(mjs$$)
+        mjs$$.classList.add('mensajeError')
+    }
 
 
 
